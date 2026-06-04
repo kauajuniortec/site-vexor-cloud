@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Vexor Cloud — Sistema para Oficinas, Assistências Técnicas e Manutenção Industrial</title>
+<meta name="description" content="Sistema online para gerenciar ordens de serviço, estoque e clientes. Ideal para oficinas mecânicas, assistências técnicas e empresas de manutenção industrial. Acesse pelo celular, tablet ou computador."/>
+<meta name="keywords" content="sistema para oficina mecânica, software ordem de serviço, sistema assistência técnica, controle de estoque oficina, gestão de manutenção industrial"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.vexorcloud.com.br/"/>
+
+<!-- Open Graph (preview no WhatsApp, redes sociais) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.vexorcloud.com.br/"/>
+<meta property="og:title" content="Vexor Cloud — Sistema para Oficinas e Assistências Técnicas"/>
+<meta property="og:description" content="Controle ordens de serviço, estoque e clientes em um único lugar. Acessa pelo celular. Demonstração gratuita via WhatsApp."/>
+<meta property="og:site_name" content="Vexor Cloud"/>
+<meta property="og:locale" content="pt_BR"/>
+
+<!-- Schema.org: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vexor Cloud",
+  "url": "https://www.vexorcloud.com.br",
+  "description": "Sistema online para gerenciar ordens de serviço, estoque e clientes. Ideal para oficinas mecânicas, assistências técnicas e empresas de manutenção industrial.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, Android, iOS",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL",
+    "description": "Demonstração gratuita disponível"
+  },
+  "featureList": ["Ordem de Serviço", "Controle de Estoque", "Cadastro de Clientes", "Gestão de Equipe", "Dashboard operacional"]
+}
+<\/script>
+
+<!-- Schema.org: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vexor Cloud",
+  "url": "https://www.vexorcloud.com.br",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "availableLanguage": "Portuguese"
+  }
+}
+<\/script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:      #0f1117;
+  --white:   #161820;
+  --border:  #23263a;
+  --text:    #f1f5f9;
+  --sub:     #8b99b5;
+  --muted:   #4a5068;
+  --blue:    #3b82f6;
+  --blue-lt: rgba(59,130,246,0.14);
+  --green:   #22c55e;
+  --green-lt:rgba(34,197,94,0.12);
+  --orange:  #f97316;
+  --orange-lt:rgba(249,115,22,0.12);
+  --red:     #ef4444;
+  --red-lt:  rgba(239,68,68,0.12);
+  --purple:  #a855f7;
+  --yellow:  #eab308;
+  --yellow-lt:rgba(234,179,8,0.12);
+  --radius:  8px;
+  --font: 'Geist', system-ui, -apple-system, sans-serif;
+  --mono: 'Geist Mono', monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-logo {
+  width: 28px;
+  height: 28px;
+}
+.brand-name {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+.brand-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .02em;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link {
+  font-size: 14px;
+  color: var(--sub);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background .15s;
+}
+.nav-link:hover { background: var(--bg); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .88; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-ghost   { background: var(--white); color: var(--text); border: 1px solid var(--border) !important; }
+.btn-green   { background: #25d366; color: #fff; }
+.btn-lg { height: 44px; font-size: 14px; padding: 0 22px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 24px 0;
+}
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hero-text {
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-size: 17px;
+  color: var(--sub);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── SCREENSHOT ── */
+.screenshot-wrap {
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0,0,0,.07);
+}
+.screenshot-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 6px;
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; }
+
+/* ── APP SCREENSHOT ── */
+.app-shell {
+  background: #0d0f15;
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+}
+.app-topbar {
+  height: 48px;
+  background: #0f1117;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #1e2030;
+  flex-shrink: 0;
+}
+.app-layout {
+  display: flex;
+  height: 520px;
+}
+.app-sidebar {
+  width: 180px;
+  background: #0f1117;
+  border-right: 1px solid #1e2030;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.app-nav-item {
+  height: 36px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #5a6480;
+  cursor: default;
+}
+.app-nav-item.active {
+  background: rgba(59,130,246,.15);
+  color: #5b9cf6;
+}
+.app-nav-dot {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  opacity: .7;
+}
+.app-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  background: #0d0f15;
+}
+
+/* KPI row */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.kpi {
+  background: #161820;
+  border: 1px solid #23263a;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.kpi-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: #5a6480;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 5px;
+}
+.kpi-num {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-note {
+  font-size: 10px;
+  color: #4a5068;
+  margin-top: 4px;
+}
+
+/* OS table */
+.os-card { background:#161820 !important; 
+  background: var(--white);
+  border: 1px solid #23263a;
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1;
+}
+.os-card-header {
+  padding: 11px 16px;
+  border-bottom: 1px solid #23263a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.os-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5a6480;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.os-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #1e2030;
+  gap: 10px;
+}
+.os-row:last-child { border-bottom: none; }
+.os-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #6b7acc;
+  width: 52px;
+  flex-shrink: 0;
+}
+.os-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d4dae8;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── SECTION ── */
+.section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+.section-sm {
+  padding: 56px 24px;
+}
+.s-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.s-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 32px;
+  line-height: 1.25;
+}
+
+/* ── FOR WHO ── */
+.for-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.for-card {
+  background: var(--white);
+  padding: 28px 24px;
+}
+.for-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.for-desc {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+/* ── FEATURES ── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.feat-card {
+  background: var(--white);
+  padding: 28px 24px;
+}
+.feat-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.feat-desc {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.feat-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.feat-list li {
+  font-size: 12px;
+  color: var(--sub);
+  padding-left: 14px;
+  position: relative;
+}
+.feat-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* ── COMING SOON ── */
+.soon-section {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 72px 24px;
+}
+.soon-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.soon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 32px;
+}
+.soon-card {
+  background: var(--bg);
+  padding: 24px;
+  position: relative;
+}
+.soon-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: var(--orange-lt);
+  border: 1px solid rgba(249,115,22,0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.soon-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.soon-desc {
+  font-size: 12px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+/* ── CTA ── */
+.cta-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+.cta-left { flex: 1; }
+.cta-right {
+  flex-shrink: 0;
+  width: 340px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.cta-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.cta-desc {
+  font-size: 15px;
+  color: var(--sub);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.cta-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-feature-list li {
+  font-size: 13px;
+  color: var(--sub);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cta-feature-list li::before {
+  content: '';
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--green-lt);
+  border: 1px solid rgba(34,197,94,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2322c55e' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-field {
+  margin-bottom: 12px;
+}
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sub);
+  margin-bottom: 5px;
+}
+.form-input {
+  width: 100%;
+  height: 40px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  padding: 0 12px;
+  outline: none;
+  transition: border-color .15s;
+}
+.form-input:focus { border-color: var(--blue); }
+.form-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 40px 24px 32px;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 13px;
+  color: var(--sub);
+}
+.footer-links a:hover { color: var(--text); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .for-grid    { grid-template-columns: 1fr 1fr; }
+  .feat-grid   { grid-template-columns: 1fr; }
+  .soon-grid   { grid-template-columns: 1fr 1fr; }
+  .kpi-row     { grid-template-columns: 1fr 1fr; }
+  .app-sidebar { display: none; }
+  .cta-section { flex-direction: column; gap: 40px; }
+  .cta-right   { width: 100%; }
+  .nav-link    { display: none; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+}
+@media (max-width: 540px) {
+  .for-grid  { grid-template-columns: 1fr; }
+  .soon-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-lg { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">
+    <svg class="brand-logo" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#60a5fa"/>
+          <stop offset="100%" stop-color="#1d4ed8"/>
+        </linearGradient>
+        <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3b82f6"/>
+          <stop offset="55%" stop-color="#1e40af"/>
+          <stop offset="100%" stop-color="#f97316"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="47" stroke="url(#lg2)" stroke-width="3" fill="none"/>
+      <polygon points="18,18 30,18 50,62 38,62" fill="url(#lg1)"/>
+      <polygon points="62,18 82,18 70,42 58,42" fill="#e2e8f0"/>
+      <polygon points="42,20 58,20 50,36" fill="#f97316"/>
+    </svg>
+    <div>
+      <div class="brand-name">Vexor Cloud</div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a href="#recursos" class="nav-link">Recursos</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="./index_htlm.html" class="btn btn-ghost">Entrar</a>
+    <a href="#demo" class="btn btn-primary">Testar grátis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-label">Sistema de gestão online</p>
+      <h1 class="hero-title">Para oficinas, assistências<br>técnicas e manutenção industrial.</h1>
+      <p class="hero-desc">Controle ordens de serviço, estoque e clientes em um único lugar. Acessa pelo celular, tablet ou computador.</p>
+      <div class="hero-actions">
+        <a href="./index_htlm.html" class="btn btn-primary btn-lg">
+          Testar o sistema
+        </a>
+        <a href="https://wa.me/55" target="_blank" class="btn btn-ghost btn-lg">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- App screenshot -->
+    <figure aria-label="Preview do painel do sistema Vexor Cloud">
+    <div class="screenshot-wrap">
+      <div class="screenshot-bar">
+        <div class="dot" style="background:#ff5f57;"></div>
+        <div class="dot" style="background:#febc2e;"></div>
+        <div class="dot" style="background:#28c840;"></div>
+        <div style="flex:1;margin:0 12px;height:20px;background:var(--border);border-radius:4px;display:flex;align-items:center;padding:0 8px;gap:5px;">
+          <svg width="9" height="9" fill="none" stroke="#aaa" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span style="font-family:var(--mono);font-size:9px;color:#aaa;">app.vexorcloud.com.br</span>
+        </div>
+      </div>
+
+      <div class="app-shell">
+        <!-- App topbar -->
+        <div class="app-topbar">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="47" stroke="#3b82f6" stroke-width="3" fill="none"/>
+              <polygon points="18,18 30,18 50,62 38,62" fill="#60a5fa"/>
+              <polygon points="62,18 82,18 70,42 58,42" fill="#e2e8f0"/>
+              <polygon points="42,20 58,20 50,36" fill="#f97316"/>
+            </svg>
+            <span style="font-size:12px;font-weight:700;color:#f1f5f9;letter-spacing:.06em;">VEXOR CLOUD</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;border-radius:7px;background:rgba(59,130,246,.18);border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#5b9cf6;">A</div>
+            <div style="text-align:left;">
+              <div style="font-size:11px;font-weight:600;color:#e2e8f0;">Administrador</div>
+              <div style="font-size:9px;color:#4a5068;">admin</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-layout">
+          <!-- Sidebar -->
+          <div class="app-sidebar">
+            <div style="font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:#3a3f55;padding:4px 10px 8px;text-transform:uppercase;">Navegação</div>
+            <div class="app-nav-item active">
+              <div class="app-nav-dot" style="background:#5b9cf6;"></div>
+              Dashboard
+            </div>
+            <div class="app-nav-item">
+              <div class="app-nav-dot" style="background:#7a8099;"></div>
+              Ordens de Serviço
+            </div>
+            <div class="app-nav-item">
+              <div class="app-nav-dot" style="background:#7a8099;"></div>
+              Estoque
+            </div>
+            <div class="app-nav-item">
+              <div class="app-nav-dot" style="background:#7a8099;"></div>
+              Clientes
+            </div>
+            <div class="app-nav-item">
+              <div class="app-nav-dot" style="background:#7a8099;"></div>
+              Equipe
+            </div>
+          </div>
+
+          <!-- Main -->
+          <div class="app-content">
+            <!-- Header -->
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div style="font-size:16px;font-weight:700;color:#f1f5f9;">Dashboard</div>
+                <div style="font-size:11px;color:#7a8099;margin-top:1px;">Visão geral · hoje</div>
+              </div>
+              <div style="height:30px;padding:0 12px;background:#3b82f6;border-radius:6px;display:flex;align-items:center;font-size:11px;font-weight:600;color:#fff;cursor:pointer;gap:5px;">
+                + Nova OS
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-row">
+              <div class="kpi">
+                <div class="kpi-lbl">OS Abertas</div>
+                <div class="kpi-num" style="color:#5b9cf6;">3</div>
+                <div class="kpi-note">2 com prioridade alta</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-lbl">Concluídas</div>
+                <div class="kpi-num" style="color:#4ade80;">1</div>
+                <div class="kpi-note">Esta semana</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-lbl">Estoque baixo</div>
+                <div class="kpi-num" style="color:#fb923c;">2</div>
+                <div class="kpi-note">Abaixo do mínimo</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-lbl">Equipe ativa</div>
+                <div class="kpi-num" style="color:#94a3b8;">4</div>
+                <div class="kpi-note">3 técnicos, 1 gestor</div>
+              </div>
+            </div>
+
+            <!-- OS table -->
+            <div class="os-card">
+              <div class="os-card-header">
+                <span class="os-card-title">Ordens de Serviço</span>
+                <span style="font-family:var(--mono);font-size:9px;color:#6b7acc;cursor:pointer;">ver todas →</span>
+              </div>
+              <div class="os-row">
+                <div class="os-num">OS-004</div>
+                <div class="os-name">Troca de Rolamento — Transportador</div>
+                <div class="tag" style="background:rgba(234,179,8,0.12);color:#eab308;border:1px solid rgba(234,179,8,0.25);">Aguardando</div>
+                <div class="tag" style="background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);">Alta</div>
+              </div>
+              <div class="os-row">
+                <div class="os-num">OS-003</div>
+                <div class="os-name">Inspeção — Painel Elétrico</div>
+                <div class="tag" style="background:rgba(168,85,247,0.12);color:#c084fc;border:1px solid rgba(168,85,247,0.25);">Planejada</div>
+                <div class="tag" style="background:rgba(234,179,8,0.12);color:#eab308;border:1px solid rgba(234,179,8,0.25);">Média</div>
+              </div>
+              <div class="os-row">
+                <div class="os-num">OS-002</div>
+                <div class="os-name">Correção — Sistema Hidráulico</div>
+                <div class="tag" style="background:rgba(59,130,246,0.12);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">Em Andamento</div>
+                <div class="tag" style="background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);">Alta</div>
+              </div>
+              <div class="os-row">
+                <div class="os-num">OS-001</div>
+                <div class="os-name">Manutenção Preventiva — Prensa 02</div>
+                <div class="tag" style="background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25);">Concluída</div>
+                <div class="tag" style="background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);">Alta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </figure>
+    <!-- end screenshot -->
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section" id="segmentos">
+  <div class="s-label">Para quem é</div>
+  <h2 class="s-title">Funciona para qualquer empresa que controla serviços e peças.</h2>
+  <div class="for-grid">
+    <div class="for-card">
+      <h3 class="for-title">Oficinas mecânicas</h3>
+      <div class="for-desc">Controle de serviços, peças e histórico de cada veículo ou equipamento.</div>
+    </div>
+    <div class="for-card">
+      <h3 class="for-title">Assistências técnicas</h3>
+      <div class="for-desc">Acompanhe equipamentos em reparo do recebimento até a entrega ao cliente.</div>
+    </div>
+    <div class="for-card">
+      <h3 class="for-title">Manutenção industrial</h3>
+      <div class="for-desc">Gerencie atendimentos, equipe técnica e histórico de máquinas.</div>
+    </div>
+    <div class="for-card">
+      <h3 class="for-title">Pequenas indústrias</h3>
+      <div class="for-desc">Estoque com alertas de reposição e controle de entrada e saída.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section class="section" id="recursos">
+  <div class="s-label">Recursos</div>
+  <h2 class="s-title">O que está disponível hoje.</h2>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <h3 class="feat-title">Ordem de Serviço</h3>
+      <div class="feat-desc">Do registro ao encerramento, com histórico completo e QR Code para consulta.</div>
+      <ul class="feat-list">
+        <li>Abertura e numeração automática</li>
+        <li>Status: planejada, em andamento, concluída, aguardando</li>
+        <li>QR Code compartilhável com o cliente</li>
+        <li>Histórico de alterações</li>
+      </ul>
+    </div>
+    <div class="feat-card">
+      <h3 class="feat-title">Estoque</h3>
+      <div class="feat-desc">Controle de produtos com alertas automáticos quando o estoque fica abaixo do mínimo.</div>
+      <ul class="feat-list">
+        <li>Entrada e saída de produtos</li>
+        <li>Quantidade mínima por item</li>
+        <li>Localização por prateleira</li>
+        <li>Alertas de estoque baixo no dashboard</li>
+      </ul>
+    </div>
+    <div class="feat-card">
+      <h3 class="feat-title">Clientes</h3>
+      <div class="feat-desc">Cadastro organizado com acesso rápido ao histórico de atendimentos.</div>
+      <ul class="feat-list">
+        <li>Dados de contato e endereço</li>
+        <li>Histórico de OS vinculadas</li>
+      </ul>
+    </div>
+    <div class="feat-card">
+      <h3 class="feat-title">Equipe</h3>
+      <div class="feat-desc">Cadastro de técnicos com controle de EPIs e vinculação às ordens de serviço.</div>
+      <ul class="feat-list">
+        <li>Perfis: administrador, técnico, gestor</li>
+        <li>Registro de EPIs entregues</li>
+        <li>Vinculação a OS</li>
+      </ul>
+    </div>
+    <div class="feat-card">
+      <h3 class="feat-title">Dashboard</h3>
+      <div class="feat-desc">Números da operação em tempo real, sem precisar abrir cada módulo.</div>
+      <ul class="feat-list">
+        <li>OS abertas e concluídas</li>
+        <li>Estoque com nível baixo</li>
+        <li>Equipe ativa</li>
+      </ul>
+    </div>
+    <div class="feat-card">
+      <h3 class="feat-title">Acesso online</h3>
+      <div class="feat-desc">Funciona no navegador, sem instalar nada. Qualquer dispositivo.</div>
+      <ul class="feat-list">
+        <li>Celular, tablet e computador</li>
+        <li>Login por e-mail e senha</li>
+        <li>Múltiplos usuários simultâneos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<div class="soon-section" id="roadmap">
+  <div class="soon-inner">
+    <div class="s-label">Em desenvolvimento</div>
+    <h2 class="s-title" style="margin-bottom:8px;">Novos recursos chegando.</h2>
+    <p style="font-size:14px;color:var(--sub);max-width:500px;">A Vexor ainda está no início. Estes módulos estão sendo desenvolvidos e serão lançados em breve.</p>
+    <div class="soon-grid">
+      <div class="soon-card">
+        <div class="soon-badge">Em breve</div>
+        <h3 class="soon-title">Financeiro</h3>
+        <div class="soon-desc">Receitas, despesas e fluxo de caixa vinculados às ordens de serviço.</div>
+      </div>
+      <div class="soon-card">
+        <div class="soon-badge">Em breve</div>
+        <h3 class="soon-title">Manutenção preventiva</h3>
+        <div class="soon-desc">Agendamento automático por calendário ou horas de uso de equipamentos.</div>
+      </div>
+      <div class="soon-card">
+        <div class="soon-badge">Em breve</div>
+        <h3 class="soon-title">Relatórios</h3>
+        <div class="soon-desc">Exportação em PDF e Excel. Desempenho por técnico, período e tipo de serviço.</div>
+      </div>
+      <div class="soon-card">
+        <div class="soon-badge">Em breve</div>
+        <h3 class="soon-title">Indicadores</h3>
+        <div class="soon-desc">Tempo médio de reparo, SLA e produtividade por equipe.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="demo" style="border-top:1px solid var(--border);">
+  <div style="max-width:560px;margin:0 auto;padding:80px 24px;text-align:center;">
+    <div class="s-label" style="text-align:center;">Demonstração gratuita</div>
+    <h2 style="font-size:clamp(24px,4vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;">
+      Veja a Vexor funcionando na prática.
+    </h2>
+    <p style="font-size:15px;color:var(--sub);margin-bottom:36px;line-height:1.65;">
+      Em menos de 15 minutos mostramos como a Vexor pode organizar a sua operação.
+    </p>
+
+    <a href="https://wa.me/55" target="_blank" class="btn" style="width:100%;max-width:360px;height:56px;font-size:16px;font-weight:700;background:#25d366;color:#fff;gap:10px;justify-content:center;border-radius:10px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Falar no WhatsApp
+    </a>
+
+    <div style="display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);">
+        <svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Sem compromisso
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);">
+        <svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Demonstração gratuita
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);">
+        <svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Atendimento rápido
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEO: texto indexável sobre o produto -->
+<section style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true">
+  <h2>Sistema de gestão para oficinas mecânicas e assistências técnicas</h2>
+  <p>O Vexor Cloud é um software online para controle de ordens de serviço, gestão de estoque, cadastro de clientes e gerenciamento de equipe técnica. Funciona no navegador, sem instalação, e pode ser acessado pelo celular, tablet ou computador.</p>
+  <p>Ideal para: oficinas mecânicas, assistências técnicas de eletrônicos e eletrodomésticos, empresas de manutenção industrial e pequenas indústrias que precisam controlar peças e processos.</p>
+  <p>Recursos disponíveis: abertura e controle de OS, alertas de estoque baixo, histórico de clientes, cadastro de equipe com EPIs, dashboard em tempo real.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="47" stroke="#3b82f6" stroke-width="3" fill="none"/>
+          <polygon points="18,18 30,18 50,62 38,62" fill="#60a5fa"/>
+          <polygon points="62,18 82,18 70,42 58,42" fill="#cbd5e1"/>
+          <polygon points="42,20 58,20 50,36" fill="#f97316"/>
+        </svg>
+        <span style="font-size:14px;font-weight:700;">Vexor Cloud</span>
+      </div>
+      <div class="footer-copy">Sistema de gestão para oficinas e assistências técnicas.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="./index_htlm.html">Entrar no sistema</a>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);">
+    © 2025 Vexor Cloud
+  </div>
+</footer>
+
+</body>
+</html>
