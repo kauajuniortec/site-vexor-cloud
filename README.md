@@ -1,1 +1,2 @@
 # site-vexorcloud
+Site institucional oficial da Vexor Cloud, plataforma SaaS de gestão industrial. Apresenta o produto, seus módulos (ordens de serviço, controle de estoque, gestão de equipe e EPIs) e direciona visitantes para contato e início de teste. Construído em HTML, CSS e JavaScript puro, com efeitos visuais em canvas e identidade visual futurista/cinematográfica, publicado no domínio próprio vexorcloud.com.
